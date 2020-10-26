@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 600 18px;
+  font-family: 'Overlock', cursive;
+}

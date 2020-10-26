@@ -1,0 +1,99 @@
+#landing-container {
+  background-color: #91CB3E;
+  color: #fff;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing-container .content-wrapper {
+  position: relative;
+
+  width: 100%;
+  max-width: 1100px;
+
+  height: 100%;
+  max-height: 680px;
+}
+
+#landing-container .content-wrapper header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+#landing-container .content-wrapper header .location {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 24px;
+  line-height: 34px;
+
+  text-align: right;
+}
+
+#landing-container .content-wrapper header .location strong {
+  font-weight: 800;
+}
+
+
+#landing-container .content-wrapper main {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  grid-template-rows:minmax(100px, 550px);
+  padding: 24px 0;
+}
+
+#landing-container .content-wrapper main .content {
+  display: flex;
+  flex-direction: column;
+}
+
+#landing-container .content-wrapper main .bg {
+  background: url('../images/house.png') no-repeat 100% center;
+}
+
+#landing-container .content-wrapper main p {
+  max-width: 400px;
+  font-size: 76px;
+  font-weight: 600;
+  line-height: 96px;
+  padding: 24px 0;
+  left: 0;
+}
+
+.content-wrapper .enter-app {
+  position: relative;
+  right: 0;
+  bottom: 0;
+
+  width: 220px;
+  padding: 0 18px;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  font-size: 18px;
+  background: #EEE82C;
+  border-radius: 30px;
+  font-weight: 800;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.content-wrapper .enter-app:hover {
+  background: #eee72c8e;
+}
+
+.content-wrapper .enter-app span {
+  padding: 12px;
+  display: flex;
+}
