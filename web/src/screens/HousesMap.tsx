@@ -6,9 +6,10 @@ import Leaflet from 'leaflet';
 
 import "../styles/housemap.css";
 import logo from "../images/logo-2.png";
+import marker from "../images/marker.png";
 
 const mapIcon= Leaflet.icon({
-  iconUrl:logo,
+  iconUrl:marker,
   iconSize:[58,68],
   iconAnchor:[29,68],
   popupAnchor:[170,2]
@@ -34,7 +35,7 @@ const HousesMap = () => {
           <strong>Rio do Sul</strong>
           <span>Santa Catarina</span>
         </footer>
-        <Link to="/create" className="new-house">
+        <Link to="/add" className="new-house">
           <span>Adicionar Casa</span><FiPlus size={26} color="rgba(255 ,255,255)" />
         </Link>
       </aside>

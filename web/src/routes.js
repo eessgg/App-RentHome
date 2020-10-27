@@ -11,7 +11,7 @@ function Routes() {
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/map" exact component={HousesMap} />
-        <Route path="/create" exact component={addNewHouse} />
+        <Route path="/add" exact component={addNewHouse} />
       </Switch>
     </BrowserRouter>
   );
