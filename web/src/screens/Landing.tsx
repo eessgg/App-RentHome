@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
 import logoLanding from '../images/logo-2.png';
-import '../styles/landing.css'
+import '../styles/screens/landing.css'
 
 const Landing = () => {
   return (
@@ -21,7 +21,7 @@ const Landing = () => {
         <main>
           <div className="content">
             <p>Encontre casas para alugar em  toda cidade.</p>
-            <Link to="/map" className="enter-app">
+            <Link to="/houses/map" className="enter-app">
               <span >Casas Disponíveis </span>     <FiArrowRight size={18} color="rgba(0, 0, 0, 0.6)" />     
             </Link>
           </div>

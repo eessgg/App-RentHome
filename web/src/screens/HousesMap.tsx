@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FiPlus } from "react-icons/fi";
-import { Map, TileLayer } from "react-leaflet";
+import { FiArrowRight, FiPlus } from 'react-icons/fi';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import Leaflet from 'leaflet';
 
-import "../styles/housemap.css";
+import "../styles/screens/housemap.css";
 import logo from "../images/logo-2.png";
 import marker from "../images/marker.png";
 
-const mapIcon= Leaflet.icon({
+const mapIcon = Leaflet.icon({
   iconUrl:marker,
   iconSize:[58,68],
   iconAnchor:[29,68],
@@ -23,6 +23,8 @@ const mapIcon= Leaflet.icon({
 // }
 
 const HousesMap = () => {
+  const [houses, setHouses] = useState([]);
+  
   return (
     <div id="housemap-container">
       <aside>        
@@ -35,7 +37,7 @@ const HousesMap = () => {
           <strong>Rio do Sul</strong>
           <span>Santa Catarina</span>
         </footer>
-        <Link to="/add" className="new-house">
+        <Link to="/houses/add" className="new-house">
           <span>Adicionar Casa</span><FiPlus size={26} color="rgba(255 ,255,255)" />
         </Link>
       </aside>
@@ -45,6 +47,16 @@ const HousesMap = () => {
         style={{ width: "100%", height: "100%" }}
       >
         <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <Marker 
+          icon={mapIcon}
+          position={[-23.550520, -46.633308]}
+        >
+          <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
+              <Link to={`/houses/1`}>
+                <FiArrowRight size={20} color="#fff" />
+              </Link>
+            </Popup>
+        </Marker>
       </Map>
     </div>
   );

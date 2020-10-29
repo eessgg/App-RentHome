@@ -1,0 +1,26 @@
+#screen-newhouse {
+  background: #c9fdc2;
+}
+/* 
+#newhouse .form-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+#newhouse .form-container aside {
+  padding: 48px;
+}
+
+#newhouse .form-container form {
+  background: #71B50F;
+  width: 400px;
+  height: 100vh;
+}
+
+/*  */
+/* #newhouse .form-container form aside {
+  min-height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+} */
