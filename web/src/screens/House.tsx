@@ -1,11 +1,8 @@
 import React from "react";
-import { FiClock, FiInfo } from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { Link, useHistory } from "react-router-dom";
 import L from "leaflet";
 
 import "../styles/screens/house.css";
-import logo from "../images/mini-logo.png";
 import marker from "../images/marker-3.png";
 import Sidebar from "../components/Sidebar";
 
@@ -17,7 +14,6 @@ const happyMapIcon = L.icon({
 });
 
 export default function Orphanage() {
-  const { goBack } = useHistory();
 
   return (
     <div id="screen-house">

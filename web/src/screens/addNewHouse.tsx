@@ -1,27 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useHistory } from "react-router-dom";
-import { FiArrowLeft, FiPlus } from "react-icons/fi";
-import L from "leaflet";
+import { FiPlus } from "react-icons/fi";
 
 import Sidebar from "../components/Sidebar";
 
-import mapMarkerImg from "../images/marker-3.png";
-import logo from "../images/logo-3.png";
 import "../styles/screens/newhouse.css";
+import mapIcon from "../utils/mapIcon";
 
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60],
-});
+// const MapIcon = L.icon({
+//   iconUrl: 'mapIcon',
+//   iconSize: [58, 68],
+//   iconAnchor: [29, 68],
+//   popupAnchor: [0, -60],
+// });
 
 export default function CreateOrphanage() {
-  const { goBack } = useHistory();
-
   return (
     <div id="screen-newhouse">
       <Sidebar />
@@ -36,7 +29,7 @@ export default function CreateOrphanage() {
               <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               <Marker
                 interactive={false}
-                icon={happyMapIcon}
+                icon={mapIcon}
                 position={[-27.2092052, -49.6401092]}
               />
             </Map>

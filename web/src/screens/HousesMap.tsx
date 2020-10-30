@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
-import Leaflet from 'leaflet';
 
 import "../styles/screens/housemap.css";
 import logo from "../images/logo-3.png";
-import marker from "../images/marker-3.png";
+import mapIcon from "../utils/mapIcon";
 
-const mapIcon = Leaflet.icon({
-  iconUrl:marker,
-  iconSize:[58,68],
-  iconAnchor:[29,68],
-  popupAnchor:[170,2]
-});
-
-// interface Orphanage {
+// interface House {
 //   id:number;
 //   latitude:number;
 //   longitude:number;
@@ -23,7 +15,7 @@ const mapIcon = Leaflet.icon({
 // }
 
 const HousesMap = () => {
-  const [houses, setHouses] = useState([]);
+  // const [houses, setHouses] = useState([]);
   
   return (
     <div id="housemap-container">
