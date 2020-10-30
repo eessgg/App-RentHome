@@ -14,5 +14,7 @@ input,
 button,
 textarea {
   font: 600 18px;
-  font-family: 'Overlock', cursive;
+  font-family: 'Podkova',
+  serif;
+
 }

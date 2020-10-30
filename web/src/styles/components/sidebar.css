@@ -1,8 +1,9 @@
 aside.app-sidebar {
   position: fixed;
+  z-index: 9999;
   height: 100%;
   padding: 32px 24px;
-  background: #91CB3E;
+  background: #084887;
 
   display: flex;
   flex-direction: column;
@@ -21,7 +22,7 @@ aside.app-sidebar footer button {
 
   border: 0;
 
-  background: #19381f77;
+  background: #D90368;
   border-radius: 16px;
 
   cursor: pointer;
@@ -35,5 +36,5 @@ aside.app-sidebar footer button {
 
 aside.app-sidebar footer a:hover,
 aside.app-sidebar footer button:hover {
-  background: #19381fd2;
+  background: #fa3792;
 }

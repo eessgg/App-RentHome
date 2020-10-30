@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory } from 'react-router-dom';
 
-import mapMarker from '../images/mini-logo.png';
+import minilogo from '../images/mini-logo.png';
 import '../styles/components/sidebar.css'
 
 export default function Sidebar() {
@@ -10,7 +11,9 @@ export default function Sidebar() {
 
   return (
     <aside className="app-sidebar">
-      <img src={mapMarker} alt="Happy" />
+      <Link to="/">
+        <img src={minilogo} alt="mini Logo" />
+      </Link>
 
       <footer>
         <button type="button" onClick={goBack}>
@@ -18,5 +21,5 @@ export default function Sidebar() {
         </button>
       </footer>
     </aside>
-  )
+  );
 }

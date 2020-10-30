@@ -1,47 +1,77 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiPlus } from "react-icons/fi";
-import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import Leaflet from "leaflet";
+import { Map, Marker, TileLayer } from "react-leaflet";
+import { useHistory } from "react-router-dom";
+import { FiArrowLeft, FiPlus } from "react-icons/fi";
+import L from "leaflet";
 
 import Sidebar from "../components/Sidebar";
-import marker from "../images/marker.png";
+
+import mapMarkerImg from "../images/marker-3.png";
+import logo from "../images/logo-3.png";
 import "../styles/screens/newhouse.css";
 
-const mapIcon = Leaflet.icon({
-  iconUrl: marker,
+const happyMapIcon = L.icon({
+  iconUrl: mapMarkerImg,
+
   iconSize: [58, 68],
   iconAnchor: [29, 68],
-  popupAnchor: [170, 2],
+  popupAnchor: [0, -60],
 });
 
-const addNewHouse = () => {
+export default function CreateOrphanage() {
+  const { goBack } = useHistory();
+
   return (
     <div id="screen-newhouse">
       <Sidebar />
       <main>
-        <Map
-          center={[-23.55052, -46.633308]}
-          zoom={12}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Marker icon={mapIcon} position={[-23.55052, -46.633308]}>
-            <Popup
-              closeButton={false}
-              minWidth={240}
-              maxWidth={240}
-              className="map-popup"
+        <form className="form-newhouse">
+          <div className="map">
+            <Map
+              center={[-27.2092052, -49.6401092]}
+              style={{ width: "100%", height: "100%" }}
+              zoom={15}
             >
-              <Link to={`/houses/1`}>
-                <FiArrowRight size={20} color="#fff" />
-              </Link>
-            </Popup>
-          </Marker>
-        </Map>
+              <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              <Marker
+                interactive={false}
+                icon={happyMapIcon}
+                position={[-27.2092052, -49.6401092]}
+              />
+            </Map>
+          </div>
+          <div className="info">
+            <fieldset>
+              <legend>Dados</legend>
+              <div className="input-block">
+                <label htmlFor="name">Nome da Mobiliaria</label>
+                <input id="name" />
+              </div>
+              <div className="input-block">
+                <label htmlFor="about">
+                  Detalhes da propriedade <span>Máximo de 100 caracteres</span>
+                </label>
+                <textarea id="name" maxLength={100} />
+              </div>
+              <div className="input-block">
+                <label htmlFor="phonenumber">Telefone</label>
+                <input id="phonenumber" type="number" />
+              </div>
+              <div className="input-block">
+                <label htmlFor="images">Fotos</label>
+                <div className="uploaded-image"></div>
+                <button className="new-image">
+                  <FiPlus size={24} color="#15b6d6" />
+                </button>
+              </div>
+            </fieldset>
+            <button className="confirm-button" type="submit">
+              Confirmar
+            </button>
+          </div>
+        </form>
       </main>
     </div>
   );
-};
-
-export default addNewHouse;
+}

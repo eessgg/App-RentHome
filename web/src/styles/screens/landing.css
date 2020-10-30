@@ -1,5 +1,5 @@
 #landing-container {
-  background-color: #91CB3E;
+  background-color: #084887;
   color: #fff;
   width: 100vw;
   height: 100vh;
@@ -44,23 +44,25 @@
 
 #landing-container .content-wrapper main {
   display: grid;
-  grid-template-columns: 450px 1fr;
+  grid-template-columns: 500px 1fr;
   grid-template-rows:minmax(100px, 550px);
   padding: 24px 0;
+  
 }
 
 #landing-container .content-wrapper main .content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 #landing-container .content-wrapper main .bg {
-  background: url('../../images/HOUSE2.png') no-repeat 100% center;
+  background: url('../../images/house.png') no-repeat 100% center;
 }
 
 #landing-container .content-wrapper main p {
-  max-width: 400px;
-  font-size: 76px;
+  max-width: 450px;
+  font-size: 60px;
   font-weight: 600;
   line-height: 96px;
   padding: 24px 0;
@@ -72,12 +74,12 @@
   right: 0;
   bottom: 0;
 
-  width: 220px;
+  width: 280px;
   padding: 0 18px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #fff;
   text-decoration: none;
-  font-size: 18px;
-  background: #EEE82C;
+  font-size: 22px;
+  background: #D90368;
   border-radius: 30px;
   font-weight: 800;
   overflow: hidden;
@@ -90,7 +92,7 @@
 }
 
 .content-wrapper .enter-app:hover {
-  background: #eee72c8e;
+  background: #fa3792;
 }
 
 .content-wrapper .enter-app span {
