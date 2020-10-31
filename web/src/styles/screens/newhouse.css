@@ -83,14 +83,14 @@ form.form-newhouse  .input-block textarea {
   width: 100%;
   background: #F5F8FA;
   border: 1px solid #D3E2E5;
-  border-radius: 20px;
+  border-radius: 10px;
   outline: none;
   color: #5C8599;
 }
 
 form.form-newhouse  .input-block input {
-  height: 64px;
-  padding: 0 16px;
+  height: 50px;
+  padding: 0 6px;
 }
 
 form.form-newhouse  .input-block textarea {
@@ -111,13 +111,14 @@ form.form-newhouse  .input-block .images-container img {
   width: 100%;
   height: 96px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 form.form-newhouse  .input-block .images-container .new-image {
+  width: 80px;
   height: 96px;
   background: #F5F8FA;
-  border: 1px dashed #96D2F0;
+  border: 1px dashed #D90368;
   border-radius: 20px;
   cursor: pointer;
 
@@ -159,8 +160,8 @@ form.form-newhouse  .input-block .button-select button:last-child {
 }
 
 form.form-newhouse  button.confirm-button {
-  margin-top: 64px;
-
+  margin-top: 24px;
+  position: relative;
   width: 100%;
   border: 0;
   cursor: pointer;

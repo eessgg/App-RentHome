@@ -1,12 +1,14 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, ChangeEvent } from "react";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { LeafletMouseEvent} from 'leaflet'
+import { LeafletMouseEvent } from "leaflet";
 import { FiPlus } from "react-icons/fi";
 
 import Sidebar from "../components/Sidebar";
 
 import "../styles/screens/newhouse.css";
 import mapIcon from "../utils/mapIcon";
+import api from "../services/api";
+import { useHistory } from "react-router-dom";
 
 // const MapIcon = L.icon({
 //   iconUrl: 'mapIcon',
@@ -16,22 +18,59 @@ import mapIcon from "../utils/mapIcon";
 // });
 
 export default function CreateOrphanage() {
-  const [position, setPosition] = useState({latitude:0, longitude:0})
-  const [name, setName] = useState('')
+  const history = useHistory();
+
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
+  const [name, setName] = useState("");
   const [details, setDetails] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
+  const [images, setImages] = useState<File[]>([]);
+  const [previewImages, setPreviewImages] = useState<string[]>([]);
 
   function handleMapClick(event: LeafletMouseEvent) {
-    const {lat, lng} = event.latlng;
-    setPosition({latitude:lat, longitude: lng})
+    const { lat, lng } = event.latlng;
+    setPosition({ latitude: lat, longitude: lng });
   }
 
-  function handleSubmit(event: FormEvent) {
+  function handleSelectImages(event: ChangeEvent<HTMLInputElement>) {
+    if (!event.target.files) {
+      return;
+    }
+    const selectedImages = Array.from(event.target.files);
+
+    setImages(selectedImages);
+
+    const selectedImagesPreview = selectedImages.map((image) => {
+      return URL.createObjectURL(image);
+    });
+
+    setPreviewImages(selectedImagesPreview);
+  }
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const {latitude, longitude} = position;
+    const { latitude, longitude } = position;
 
-    console.log(name, details, phonenumber, latitude, longitude);
+    const data = new FormData();
+
+    data.append("dono", name);
+    data.append("details", details);
+    data.append("phonenumber", String(phonenumber));
+    data.append("latitude", String(latitude));
+    data.append("longitude", String(longitude));
+
+    images.forEach((image) => {
+      data.append("images", image);
+    });
+
+    console.log(name, details, phonenumber, latitude, longitude, images);
+
+    await api.post("houses", data);
+
+    alert("Cadastro realizado com sucesso!");
+
+    history.push("/houses/map");
   }
 
   return (
@@ -41,7 +80,7 @@ export default function CreateOrphanage() {
         <form className="form-newhouse" onSubmit={handleSubmit}>
           <div className="map">
             <Map
-              center={[-27.2092052, -49.6401092]}
+              center={[-23.55052, -46.633308]}
               style={{ width: "100%", height: "100%" }}
               zoom={15}
               onClick={handleMapClick}
@@ -92,10 +131,20 @@ export default function CreateOrphanage() {
                 <label htmlFor="images">Fotos</label>
 
                 <div className="images-container">
-                  <button className="new-image" type="button">
-                    <FiPlus size={24} color="#15b6d6" />
-                  </button>
-                </div>              
+                  {previewImages.map((image) => {
+                    return <img key={image} src={image} alt={name} />;
+                  })}
+                  <label htmlFor="image[]" className="new-image">
+                    <FiPlus size={24} color="#D90368" />
+                  </label>
+                  <input
+                    multiple
+                    onChange={handleSelectImages}
+                    type="file"
+                    name="img"
+                    id="image[]"
+                  />
+                </div>
               </div>
             </fieldset>
             <button className="confirm-button" type="submit">
