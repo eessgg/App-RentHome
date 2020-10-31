@@ -64,7 +64,7 @@
 }
 
 .house-details .house-details-content {
-  padding: 80px;
+  padding: 24px;
 }
 
 .house-details .house-details-content h1 {
@@ -81,7 +81,7 @@
 }
 
 .house-details .house-details-content .map-container {
-  margin-top: 64px;
+  margin-top: 24px;
   background: #E6F7FB;
   border: 1px solid #B3DAE2;
   border-radius: 20px;

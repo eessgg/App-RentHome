@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   height: 100vh;
-  background: #5C8599;
 }
 
 #screen-newhouse main .map {
@@ -26,9 +25,9 @@ form.form-newhouse {
   grid-template-columns:1fr 500px;
 }
 
-form.form-newhouse .map {
+/* form.form-newhouse .map {
   
-}
+} */
 
 form.form-newhouse .info {
   padding: 48px;

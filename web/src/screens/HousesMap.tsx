@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
@@ -6,16 +6,24 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import "../styles/screens/housemap.css";
 import logo from "../images/logo-3.png";
 import mapIcon from "../utils/mapIcon";
+import api from "../services/api";
 
-// interface House {
-//   id:number;
-//   latitude:number;
-//   longitude:number;
-//   name:string;
-// }
+interface House {
+  id:number;
+  latitude:number;
+  longitude:number;
+  name:string;
+}
 
 const HousesMap = () => {
-  // const [houses, setHouses] = useState([]);
+  const [houses, setHouses] = useState<House[]>([]);
+
+  useEffect(() => {
+    api.get('/houses').then(response => {
+      console.log(response.data)
+     setHouses(response.data);
+    })
+  }, []);
   
   return (
     <div id="housemap-container">
@@ -40,19 +48,25 @@ const HousesMap = () => {
         style={{ width: "100%", height: "100%" }}
       >
         <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker icon={mapIcon} position={[-23.55052, -46.633308]}>
-          <Popup
-            closeButton={false}
-            minWidth={240}
-            maxWidth={240}
-            className="map-popup"
-          >
-            Lar Doce Sonho
-            <Link to={`/houses/1`}>
-              <FiArrowRight size={20} color="#fff" />
-            </Link>
-          </Popup>
-        </Marker>
+
+        {houses.map(house => {
+          return (
+            <Marker key={house.id} icon={mapIcon} position={[house.latitude, house.longitude]}>
+              <Popup
+                closeButton={false}
+                minWidth={240}
+                maxWidth={240}
+                className="map-popup"
+              >
+                {house.name}
+                <Link to={`/houses/${house.id}`}>
+                  <FiArrowRight size={20} color="#fff" />
+                </Link>
+              </Popup>
+            </Marker>
+          );
+        })}
+        
       </Map>
     </div>
   );

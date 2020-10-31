@@ -1,4 +1,6 @@
-# App RentHome 🏠
+# 🏠 App RentHome 🏠
 
 
-🚧 **em construção** 🚧
+![bg-image](./bg1.png)
+
+<h1>🚧 Em construção 🚧</h1>
